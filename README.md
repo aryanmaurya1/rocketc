@@ -1,2 +1,2 @@
 # RocketMLGO
-Simple library for CSV data manipulation and training liner Regression Model.
+Simple library for CSV data manipulation and training linear Regression Model.
