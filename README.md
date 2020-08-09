@@ -1,7 +1,7 @@
 # RocketC
 ## (Under Development)
 
-<img src="./logo_1.png">
+<img src="./logo.png">
 
 Simple library for CSV data manipulation and mathematical computation.<br>
 <b><i>This library can be used in developing simple Machine Learning models from scratch.</i></b> 
