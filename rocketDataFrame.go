@@ -34,7 +34,7 @@ func (d DataFrame) Headers() []string {
 	return d[0]
 }
 
-// Head : Returns first n rows of DataFrame
+// Head : Returns first n rows of DataFrame including headers.
 func (d DataFrame) Head(n int) DataFrame {
 	if n <= len(d) {
 		return (d)[0:n]
@@ -130,14 +130,13 @@ func PrintDataframe(m ...DataFrame) {
 		for row := range m {
 			fmt.Printf("%3d |", row)
 			for col := range m[row] {
-				if len(m[row][col]) > 10 {
-					fmt.Printf("%-16s, ", m[row][col])
+				if col < len(m[row])-1 {
+					fmt.Printf("%-15s, ", m[row][col])
 				} else {
-					fmt.Printf("%-5s, ", m[row][col])
-				}
+					fmt.Printf("%-15s \n", m[row][col])
 
+				}
 			}
-			fmt.Println()
 		}
 	}
 	for _, value := range m {
