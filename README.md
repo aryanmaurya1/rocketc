@@ -30,4 +30,4 @@
  </ul>
  </p>
 
- <b><i>Package Documentation and examples are under development. You can find basic documentation inside source files.</i></b>
+ <b><i>Examples are under development. You can find documentation in documentation.pdf file.</i></b>
