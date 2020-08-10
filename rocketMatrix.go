@@ -1,3 +1,5 @@
+// Package rocketc provides basic functionalities to work with CSV data
+// and 2D Matrices.
 package rocketc
 
 // Matrix : Basic numerical container (2D array), core datatype.
