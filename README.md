@@ -27,5 +27,8 @@
  </li>
  </ul>
  </p>
-<h4>You can find documentation in documentation.pdf file. </h4>
+<p>
+<b>You can find documentation in documentation.pdf file.  --> </b>
+<a href="./documentation.pdf">LINK TO DOCUMENTATION FILE </a>
+</p>
  <b><i>Examples are under development.</i></b>
