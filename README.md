@@ -15,7 +15,9 @@ Fast, Simple and Lightweight library for CSV data manipulation and mathematical 
 </ul>
 <p>
  <h3>Installation </h3> 
- <p>$ go get github.com/aryanmaurya1/rocketc</p>
+ <p>
+  go get github.com/aryanmaurya1/rocketc
+</p>
 <b>Current Documentation status : </b>
 <ul>
 <li>
