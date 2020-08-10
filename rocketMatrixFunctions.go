@@ -1,5 +1,3 @@
-// Package rocketc provides basic functionalities to work with CSV data
-// and 2D Matrices.
 package rocketc
 
 import (
@@ -138,8 +136,7 @@ func Ones(rows, cols int) Matrix {
 }
 
 // Sum : Returns a Matrix containing sum of elements of Matrix m according to given axis.
-// axis = 0 -> Along the rows
-// axis = 1 -> Along the columns
+// If axis = 0, along the rows and if axis = 1, along the columns.
 func Sum(m Matrix, axis int) Matrix {
 	if axis > 1 || axis < 0 {
 		panic("Error in Axis")
@@ -208,8 +205,7 @@ func HStack(m ...Matrix) Matrix {
 }
 
 // Max : Returns a Matrix containing the maximum of elements of Matrix m according to given axis.
-// axis = 0 -> Along the rows
-// axis = 1 -> Along the columns
+// If axis = 0, along the rows and if axis = 1, along the columns.
 func Max(m Matrix, axis int) Matrix {
 	if axis > 1 || axis < 0 {
 		panic("Error in Axis")
@@ -237,8 +233,7 @@ func Max(m Matrix, axis int) Matrix {
 }
 
 // Min : Returns a Matrix containing the minimum of elements of Matrix m according to given axis.
-// axis = 0 -> Along the rows
-// axis = 1 -> Along the columns
+// If axis = 0, along the rows and if axis = 1, along the columns.
 func Min(m Matrix, axis int) Matrix {
 	minimum := func(m []float32) float32 {
 		min := m[0]
@@ -269,8 +264,7 @@ func Min(m Matrix, axis int) Matrix {
 }
 
 // Mean : Returns a Matrix containing the mean of elements of Matrix m according to given axis.
-// axis = 0 -> Along the rows
-// axis = 1 -> Along the columns
+// If axis = 0, along the rows and if axis = 1, along the columns.
 func Mean(m Matrix, axis int) Matrix {
 	if axis == 0 {
 		var l = m.Cols()

@@ -1,5 +1,3 @@
-// Package rocketc provides basic functionalities to work with CSV data
-// and 2D Matrices.
 package rocketc
 
 import (

@@ -1,5 +1,4 @@
-// Package rocketc provides basic functionalities to work with CSV data
-// and 2D Matrices.
+// Package rocketc is fast, simple and lightweight library for CSV data manipulation and mathematical computation involving 2D Matrices.
 package rocketc
 
 import (
@@ -127,21 +126,20 @@ func ConvMatrix(d DataFrame) (Matrix, error) {
 }
 
 // PrintDataframe :
-func PrintDataframe(m ...DataFrame) {
-	lambda := func(m DataFrame) {
-		for row := range m {
+func PrintDataframe(d ...DataFrame) {
+	lambda := func(d DataFrame) {
+		for row := range d {
 			fmt.Printf("%3d |", row)
-			for col := range m[row] {
-				if col < len(m[row])-1 {
-					fmt.Printf("%-15s, ", m[row][col])
+			for col := range d[row] {
+				if col < len(d[row])-1 {
+					fmt.Printf("%-15s, ", d[row][col])
 				} else {
-					fmt.Printf("%-15s \n", m[row][col])
-
+					fmt.Printf("%-15s \n", d[row][col])
 				}
 			}
 		}
 	}
-	for _, value := range m {
+	for _, value := range d {
 		lambda(value)
 		fmt.Println()
 	}
