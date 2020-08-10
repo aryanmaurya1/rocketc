@@ -21,13 +21,12 @@
  <b>Current Documentation status : </b>
  <ul>
  <li>
- Documentation of IO module is complete, currently it is written in source files above the functions and will be released in a seperate file in proper manner soon. 
+ Documentation of IO module is complete. 
  </li>
  <li>
- Documentation of Matrix and its related methods and functions is complete. They can be found in source code files above the function or method definition.
- They will be released in a seperate file in proper manner soon.
+ Documentation of Matrix and its related methods and functions is complete.
  </li>
  </ul>
  </p>
-
- <b><i>Examples are under development. You can find documentation in documentation.pdf file.</i></b>
+<h4>You can find documentation in documentation.pdf file.</h4>
+ <b><i>Examples are under development.</i></b>
