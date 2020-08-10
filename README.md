@@ -1,5 +1,4 @@
 # RocketC
-## (Under Development)
 
  <img src="./logo.png">
 
@@ -28,5 +27,5 @@
  </li>
  </ul>
  </p>
-<h4>You can find documentation in documentation.pdf file.</h4>
+## You can find documentation in documentation.pdf file.
  <b><i>Examples are under development.</i></b>
