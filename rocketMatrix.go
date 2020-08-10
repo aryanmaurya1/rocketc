@@ -160,3 +160,17 @@ func (m *Matrix) Map(f func(v float32) float32, inplace bool) Matrix {
 	}
 	return temp
 }
+
+// Filter : Takes a function f as argument which in turn takes a float32
+// and returns bool. Filter function applies f to every element in m and
+// returns the result as a boolean matrix.
+func (m Matrix) Filter(f func(v float32) bool) [][]bool {
+	result := make([][]bool, m.Rows())
+	for i := 0; i < m.Rows(); i++ {
+		result[i] = make([]bool, len(m[i]))
+		for j := 0; j < len(m[i]); j++ {
+			result[i][j] = f(m[i][j])
+		}
+	}
+	return result
+}

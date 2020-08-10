@@ -135,12 +135,14 @@ func Ones(rows, cols int) Matrix {
 	return m
 }
 
-// Sum : Returns the sum of elements of Matrix according to given axis.
+// Sum : Returns a Matrix containing sum of elements of Matrix m according to given axis.
+// axis = 0 -> Along the rows
+// axis = 1 -> Along the columns
 func Sum(m Matrix, axis int) Matrix {
 	if axis > 1 || axis < 0 {
 		panic("Error in Axis")
 	}
-	if axis == 0 {
+	if axis == 1 {
 		var s = Zeros(1, m.Cols())
 		for i := 0; i < len(s[0]); i++ {
 			for _, value := range m {
@@ -179,7 +181,8 @@ func Random(rows, cols int) Matrix {
 	return s
 }
 
-// VStack :
+// VStack : Returns a Matrix which is constructed by vertically stacking
+// every Matrix passed in argument. Takes variadic number of arguments i.e Matrix.
 func VStack(m ...Matrix) Matrix {
 	var s Matrix
 	for _, value := range m {
@@ -190,7 +193,8 @@ func VStack(m ...Matrix) Matrix {
 	return s
 }
 
-// HStack :
+// HStack : Returns a Matrix which is constructed by horizontally stacking
+// every Matrix passed in argument. Takes variadic number of arguments i.e Matrix.
 func HStack(m ...Matrix) Matrix {
 	var s = make(Matrix, m[0].Rows())
 	for _, value := range m {
@@ -201,10 +205,13 @@ func HStack(m ...Matrix) Matrix {
 	return s
 }
 
-// Max :
-// 0 -> Along the rows
-// 1 -> Along the columns
+// Max : Returns a Matrix containing the maximum of elements of Matrix m according to given axis.
+// axis = 0 -> Along the rows
+// axis = 1 -> Along the columns
 func Max(m Matrix, axis int) Matrix {
+	if axis > 1 || axis < 0 {
+		panic("Error in Axis")
+	}
 	if axis == 1 {
 		var s = Zeros(1, m.Cols())
 		for row, value := range m {
@@ -227,7 +234,9 @@ func Max(m Matrix, axis int) Matrix {
 	return s
 }
 
-// Min :
+// Min : Returns a Matrix containing the minimum of elements of Matrix m according to given axis.
+// axis = 0 -> Along the rows
+// axis = 1 -> Along the columns
 func Min(m Matrix, axis int) Matrix {
 	minimum := func(m []float32) float32 {
 		min := m[0]
@@ -238,7 +247,7 @@ func Min(m Matrix, axis int) Matrix {
 		}
 		return min
 	}
-	if axis == 0 {
+	if axis == 1 {
 		var s = Zeros(1, m.Cols())
 		s[0] = m[0]
 		for row, value := range m {
@@ -257,25 +266,28 @@ func Min(m Matrix, axis int) Matrix {
 	return s
 }
 
-// Mean :
+// Mean : Returns a Matrix containing the mean of elements of Matrix m according to given axis.
+// axis = 0 -> Along the rows
+// axis = 1 -> Along the columns
 func Mean(m Matrix, axis int) Matrix {
 	if axis == 0 {
-		var l = m.Rows()
+		var l = m.Cols()
 		var s = Sum(m, axis)
-		for col := range s[0] {
-			s[0][col] /= float32(l)
+		for col := range s {
+			s[col][0] /= float32(l)
 		}
 		return s
 	}
-	var l = m.Cols()
+	var l = m.Rows()
 	var s = Sum(m, 1)
-	for col := range s {
-		s[col][0] /= float32(l)
+	for col := range s[0] {
+		s[0][col] /= float32(l)
 	}
 	return s
 }
 
-// GetColumnsMatrix :
+// GetColumnsMatrix : Returns a Matrix only containing columns whose index is passed.
+// columns are 0 indexed. Takes variadic arguments i.e index.
 func GetColumnsMatrix(m Matrix, i ...int) Matrix {
 	var c = Zeros(m.Rows(), len(i))
 	for row, value := range m {
