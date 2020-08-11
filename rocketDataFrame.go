@@ -9,12 +9,12 @@ import (
 // DataFrame : Basic data container, stores data in form of 2D slices of string.
 type DataFrame [][]string
 
-// Rows : Returns number of rows in DataFrame
+// Rows : Returns number of rows in DataFrame.
 func (d DataFrame) Rows() int {
 	return len(d)
 }
 
-// Cols : Returns number of columns in DataFrame (Returns -1 if nil DataFrame)
+// Cols : Returns number of columns in DataFrame, DataFrame must be uniform for accurate result.
 func (d DataFrame) Cols() int {
 	if len(d) != 0 {
 		return len(d[0])
@@ -22,7 +22,7 @@ func (d DataFrame) Cols() int {
 	return 0
 }
 
-// Shape : Returns shape of DataFrame (slice of length 2)
+// Shape : Returns shape of DataFrame, slice of length 2.
 func (d DataFrame) Shape() []int {
 	var size = make([]int, 2, 2)
 	size[0] = d.Rows()
@@ -30,7 +30,7 @@ func (d DataFrame) Shape() []int {
 	return size
 }
 
-// Headers : Returns header of the dataframe i.e row 0
+// Headers : Returns header of the dataframe i.e row 0.
 func (d DataFrame) Headers() []string {
 	return d[0]
 }
@@ -38,7 +38,7 @@ func (d DataFrame) Headers() []string {
 // Head : Returns first n rows of DataFrame including headers.
 func (d DataFrame) Head(n int) DataFrame {
 	if n <= len(d) {
-		return (d)[0:n]
+		return d[0:n]
 	}
 	return d[0:]
 }
@@ -65,8 +65,7 @@ func Allocate(row, col int) DataFrame {
 }
 
 // WipeDown : Returns unifom DataFrame by only including rows of length l
-// in returned DataFrame.
-// Takes an integer l.
+// in returned DataFrame. Takes a DataFrame and a integer as arguments.
 func WipeDown(m DataFrame, l int) DataFrame {
 	var r DataFrame
 	n := m.Rows()
@@ -79,7 +78,7 @@ func WipeDown(m DataFrame, l int) DataFrame {
 	return r
 }
 
-// DropColumn : Drops columns from a DataFrame, takes variable number of arguments
+// DropColumn : Drops columns from a DataFrame, takes a DataFrame and variable number of arguments
 // which are indexes of columns to be droped.
 func DropColumn(d DataFrame, i ...int) DataFrame {
 	f := func(arr []int) int {
@@ -125,7 +124,7 @@ func ConvMatrix(d DataFrame) (Matrix, error) {
 	return m, nil
 }
 
-// PrintDataframe :
+// PrintDataframe : for pretty printing of DataFrame.
 func PrintDataframe(d ...DataFrame) {
 	lambda := func(d DataFrame) {
 		for row := range d {
@@ -145,7 +144,9 @@ func PrintDataframe(d ...DataFrame) {
 	}
 }
 
-// GetColumnsDataFrame :
+// GetColumnsDataFrame : Returns a DataFrame by only including specific columns
+// whose column indexs are passed as argument. Take a DataFrame and variadic number
+// integers which are column indexes.
 func GetColumnsDataFrame(d DataFrame, i ...int) DataFrame {
 	var c = Allocate(d.Rows(), len(i))
 	for row, value := range d {
