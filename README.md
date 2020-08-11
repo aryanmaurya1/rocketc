@@ -32,8 +32,8 @@
 </ul>
  </p>
 <p>
-<b>You can find documentation in "documentation.pdf" file.  --> </b>
-<a href="./documentation.pdf">LINK TO DOCUMENTATION FILE </a>
+<b>You can find documentation in "rocketc_documentation.pdf" file.</b>
+<a href="./rocketc_documentation.pdf">Documentation </a>
 </p>
  <b><i>Examples are under development.</i></b>
  <i>If you find any bug or want to add new functionality, just create a pull request or directly mail me at "aryanmaurya1@outlook.com".</i>
