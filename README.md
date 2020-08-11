@@ -25,7 +25,11 @@
  <li>
  Documentation of Matrix and its related methods and functions is complete.
  </li>
- </ul>
+<li>
+ Documentation of DataFrame and its related methods and functions is complete.
+ </li>
+
+</ul>
  </p>
 <p>
 <b>You can find documentation in "documentation.pdf" file.  --> </b>
