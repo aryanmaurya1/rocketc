@@ -12,6 +12,7 @@ func main() {
 	if err != nil {
 		fmt.Println(err.Error())
 	}
+	d = rocketc.GetColumnsDataFrame(d, 0, 1, 3, 4)
 	rocketc.PrintDataframe(d.Head(10))
 
 	var m = rocketc.Matrix{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}, {1, 2, 3}}
