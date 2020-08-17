@@ -48,7 +48,7 @@ func ReadCSVMatrix(fname string, dropFirst bool) (Matrix, error) {
 
 // ReadCSVDataFrame : Use this function to read CSV file completely.
 // Takes a string filename. Returns DataFrame and not nil error value in case
-// of any error occured. Currently ReadCSVDataFrame can only read matrices
+// of any error occurred. Currently ReadCSVDataFrame can only read matrices
 // which do not have multiple values in single column.
 // Note : Use this function if data contains both numeric and string values.
 func ReadCSVDataFrame(fname string) (DataFrame, error) {
@@ -64,7 +64,7 @@ func ReadCSVDataFrame(fname string) (DataFrame, error) {
 // WriteCSVMatrix : Writes Matrix into a file, so that Matrix can be
 // saved to disk for furthur. Takes a Matrix, slice of strings which are
 // headers and filename as arguments. Returns an error value in case of
-// any error occured.
+// any error occurred.
 // Note : This function can only write Matrix to file.
 func WriteCSVMatrix(m Matrix, fname string) error {
 	f, err := os.Create(fname)
@@ -101,7 +101,7 @@ func WriteCSVMatrix(m Matrix, fname string) error {
 
 // WriteCSVDataFrame : Writes DataFrame into a file, so that DataFrame can be
 // saved to disk for furthur. Takes a DataFrame and filename as
-// arguments. Returns an error value in case of any error occured.
+// arguments. Returns an error value in case of any error occurred.
 // Note : This function can only write DataFrame to file.
 func WriteCSVDataFrame(d DataFrame, fname string) error {
 	f, err := os.Create(fname)
